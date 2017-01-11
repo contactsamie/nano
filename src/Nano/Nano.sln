@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nano.WebUIDeployment", "Nan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nano.WebUIHost", "Nano.WebUIHost\Nano.WebUIHost.csproj", "{352CE4A5-F3FA-4844-BFE2-6BFE94DB5D9D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nano.ServiceDeployment", "Nano.ServiceDeployment\Nano.ServiceDeployment.csproj", "{FD89D7F3-8B83-41B2-A0D9-FA2E5343FD2E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{352CE4A5-F3FA-4844-BFE2-6BFE94DB5D9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{352CE4A5-F3FA-4844-BFE2-6BFE94DB5D9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{352CE4A5-F3FA-4844-BFE2-6BFE94DB5D9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD89D7F3-8B83-41B2-A0D9-FA2E5343FD2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD89D7F3-8B83-41B2-A0D9-FA2E5343FD2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD89D7F3-8B83-41B2-A0D9-FA2E5343FD2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD89D7F3-8B83-41B2-A0D9-FA2E5343FD2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,5 +103,6 @@ Global
 		{E1D7E2EF-86A2-46BE-85E9-AA60CC68BB03} = {82901F2C-E0C9-4C93-8681-B782869202C2}
 		{0AD4B69C-FF2C-4277-AD88-2B285F61FCE1} = {041C1A47-9318-4248-86F0-9D8128774460}
 		{352CE4A5-F3FA-4844-BFE2-6BFE94DB5D9D} = {82901F2C-E0C9-4C93-8681-B782869202C2}
+		{FD89D7F3-8B83-41B2-A0D9-FA2E5343FD2E} = {041C1A47-9318-4248-86F0-9D8128774460}
 	EndGlobalSection
 EndGlobal

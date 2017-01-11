@@ -157,6 +157,10 @@
       <Project>{352CE4A5-F3FA-4844-BFE2-6BFE94DB5D9D}</Project>
       <Name>Nano.WebUIHost</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Nano.WebUI\Nano.WebUI.csproj">
+      <Project>{c7f8ea8a-9bcb-4a38-8f8e-0f5a33289f67}</Project>
+      <Name>Nano.WebUI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
