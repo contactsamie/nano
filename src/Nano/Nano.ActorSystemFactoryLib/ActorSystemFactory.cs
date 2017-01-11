@@ -4,13 +4,14 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Akka.Actor;
 using Nano.DiagnosticLib;
 
 namespace Nano.ActorSystemFactoryLib
 {
     public class ActorSystemFactory
     {
-        private static readonly Logger Log = LogManager.GetCurrentClassLogger();
+  
 
         /// <summary>
         /// Any actor system passed in can be terminated if 'TerminateActorSystem()' is called on a disposable
@@ -33,7 +34,7 @@ namespace Nano.ActorSystemFactoryLib
 
             if (InventoryServiceActorSystem != null) return;
             const string message = "Invalid ActorSystemName.Please set up 'ServerActorSystemName' in the config file";
-            Log.Debug(message);
+         
             throw new Exception(message);
         }
 

@@ -1,17 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
+
+using System;
+using System.Configuration;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Akka.Actor;
 using Autofac;
+using Autofac.Integration.SignalR;
+using Microsoft.AspNet.SignalR;
 using Microsoft.Owin.FileSystems;
 using Microsoft.Owin.Hosting;
 using Microsoft.Owin.StaticFiles;
 using Nano.ActorSystemFactoryLib;
+using Nano.WebUIHost;
 using NLog;
-using NLog.Internal;
 using Owin;
 
 namespace Nano.WebUIDeployment
@@ -31,14 +32,11 @@ namespace Nano.WebUIDeployment
         {
             try
             {
-                ActorSystemFactory.CreateOrSetUpActorSystem(serverActorSystemName: serverActorSystemName, actorSystem: serverActorSystem, actorSystemConfig: serverActorSystemConfig);
-                var inventoryNotificationActorAddress = ConfigurationManager.AppSettings["RemoteInventoryInventoryQueryActorAddress"];
-                var RemoteInventoryActorAddress = ConfigurationManager.AppSettings["RemoteInventoryActorAddress"];
-                var signalRInventoryQueryActorRef = ActorSystemFactory.InventoryServiceActorSystem.ActorOf(Props.Create(() => new SignalRInventoryQueryActor(inventoryNotificationActorAddress, RemoteInventoryActorAddress)).WithMailbox(nameof(GetAllInventoryListMailbox)), typeof(SignalRInventoryQueryActor).Name);
-
+                ActorSystemFactory.CreateOrSetUpActorSystem( serverActorSystemName,  serverActorSystem, actorSystemConfig: serverActorSystemConfig);
+               
                 const string message = "signalRInventoryQueryActor created !!!!";
                 Log.Debug(message);
-                Console.WriteLine(message);
+              
 
                 Log.Debug("Starting inventory service ...");
                 serverEndPoint = serverEndPoint ?? ConfigurationManager.AppSettings["ServerEndPoint"];
@@ -50,9 +48,9 @@ namespace Nano.WebUIDeployment
                         if (Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + "/web"))
                         {
                             var builder = new ContainerBuilder();
-                            builder.Register(c => signalRInventoryQueryActorRef).ExternallyOwned();
+                          //builder.Register(c => signalRInventoryQueryActorRef).ExternallyOwned();
                             // Register your SignalR hubs.
-                            builder.RegisterType<InventoryServiceHub>().ExternallyOwned();
+                            builder.RegisterType<NanoServiceHub>().ExternallyOwned();
 
                             var container = builder.Build();
                             //var config = new HubConfiguration {Resolver = new AutofacDependencyResolver(container)};
